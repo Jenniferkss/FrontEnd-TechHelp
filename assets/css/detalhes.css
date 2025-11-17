@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    width: 1140px;
+    height: 175px;
+    display: flex;
+    background-color: #10396D;
+    justify-items: center;
+}
+
+header img {
+    width: 150px;
+    height: 80px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 9.0625rem;
+  background-color: #172335;
+  display: flex;
+  justify-content: center;
+  color: #A8AEAD;
+}
+
+header img {
+  width: 13.8125rem;
+  height: 7.875rem;  
+  margin-top: 0.5rem;
+}
+
+.topnav {
+  background: transparent; 
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center;
+  gap: 20px;              
+  padding: 10px 30px; 
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 110%;
+}
+
+.topnav a:hover {
+  background-color: #5F84A2;
+  color: rgb(236, 236, 236);
+  border-radius: 100%;
+}
+
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
+}
+
+.topnav input[type=text] {
+  margin-left: auto;
+  background-color: transparent;
+  padding: 5px;
+  border: 2px solid white;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 15px;
+  font-family: "Marcellus", serif;
+  border-radius: 16px;
+}
+
+.topnav input[type=text]:hover {
+  background-color: white;
+  color: #172335; 
+}
