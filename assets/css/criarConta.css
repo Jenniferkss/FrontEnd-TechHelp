@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+
+main {
+    background-color: #0a1e38;;
+    min-height: 100vh;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5rem;
+    box-sizing: border-box;
+  }
+
+section {
+  background-color: #123158;
+  text-align: center;
+  color: #E9E9E9;
+  font-size: 28px;
+  width: 100%;
+  max-width: 22rem;
+  padding: 3.5rem;
+  border-radius: 15px;
+  font-family: "Marcellus SC";
+  margin: 0;
+}
+
+input {
+  border-radius: 8px;
+  background-color: #A8AEAD;
+  margin: 5px; 
+  padding: 5px;
+  width: 15rem;
+  margin-top: 25px;
+}
+
+.botao {
+  background-color:#A8AEAD;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  border-radius: 8px;
+  transition: background-color 0.5s ease;
+}
+    
+.botao:hover {
+  background-color: #A8AEAD;
+}
