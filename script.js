@@ -68,9 +68,19 @@ function mostrarDetalhes(c) {
 }
 
 function voltar() {
+<<<<<<< HEAD
+    detalhes.innerHTML = '';
+    lista.style.display = 'block';
+    document.getElementById('filtros').style.display = 'block'; // Mostra a div inteira de filtros
+    mostrarLista(chamados); // Mostra a última lista de chamados carregada/filtrada
+}
+
+
+=======
   detalhes.innerHTML = '';
   lista.style.display = 'block';
   inputBuscar.style.display = 'inline';
   btnBuscar.style.display = 'inline';
   btnReset.style.display = 'inline';
 }
+>>>>>>> 19b4cfe497e4753edab5072e60dc1fb5d278df8e

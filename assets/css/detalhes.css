@@ -87,3 +87,38 @@ header img {
   background-color: white;
   color: #172335; 
 }
+
+
+/* tema claro */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* tema escuro */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+}
+
+/* Tema escuro */
+.dark-mode {
+  --bg-color: #121212;
+  --text-color: #ffffff;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: 0.3s;
+}
