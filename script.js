@@ -106,3 +106,5 @@ function voltar() {
     document.getElementById('filtros').style.display = 'block'; // Mostra a div inteira de filtros
     mostrarLista(chamados); // Mostra a última lista de chamados carregada/filtrada
 }
+
+
