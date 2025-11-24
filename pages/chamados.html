@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usuários</title>
-    <link rel="stylesheet" href="/assets/css/chamados.css" />
-    <script src="/script.js" defer></script>
-  </head>
-  <body>
-    <h1>Usuários</h1>
-    <input id="inputBuscar" placeholder="Buscar por nome..." />
-    <button id="btnBuscar">Buscar</button>
-    <button id="btnReset">Reset</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chamados</title>
+  <link rel="stylesheet" href="/assets/css/chamados.css">
+</head>
+<body>
+  <h1>Chamados</h1>
 
-    <div id="lista"></div>
-    <div id="detalhes"></div>
+    
+    <input type="text" id="inputId" placeholder="Buscar Chamado por ID"> 
+  
+    <input type="text" id="inputBuscar" placeholder="Buscar por descrição/palavra-chave">
+  
+  <select id="selectStatus">
+    <option value="">Todos os status</option>
+    <option value="Aberto">Aberto</option>
+    <option value="Em Andamento">Em Andamento</option>
+    <option value="Concluído">Concluído</option>
+  </select>
+  <select id="selectPrioridade">
+    <option value="">Todas as prioridades</option>
+    <option value="Baixa">Baixa</option>
+    <option value="Média">Média</option>
+    <option value="Alta">Alta</option>
+  </select>
+  <input type="text" id="inputResponsavel" placeholder="Filtrar por responsável ID">
+  
+  <button id="btnBuscar">Buscar</button>
+  <button id="btnReset">Resetar</button>
 
-    
-  </body>
+  <div id="lista"></div>
+  <div id="detalhes"></div>
+  
+    <script src="/script.js" defer></script>
+</body>
 </html>
