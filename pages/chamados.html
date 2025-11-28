@@ -12,14 +12,14 @@
 </head>
 <body>
     <header>
-        <h1>Academia Lyra</h1>
-    <img src="../assets/img/Logo.png"/>
+      <img src="../assets/img/Logo.png" />
+       <h1>Academia Lyra</h1>
 
-    <div class="topnav">
-    <a href="login.html"><i class="fa-regular fa-user"></i></a>
-  </div>
-
+      <div class="login">
+        <a href="../login.html"><i class="fa-regular fa-user"></i></a>
+      </div>
     </header>
+
  <h1>Chamados</h1>
  
  <input type="text" id="inputId" placeholder="Buscar Chamado por ID">  
@@ -40,8 +40,10 @@
  <button id="btnBuscar">Buscar</button>
 <button id="btnReset">Resetar</button>
 
+<main class="detalhes-chamado">
+        <div id="detalhes" class="card-detalhes"></div>
+</main>
 <div id="lista"></div>
- <div id="detalhes"></div> 
 <script src="/script.js" defer></script>
 </body>
 </html>
