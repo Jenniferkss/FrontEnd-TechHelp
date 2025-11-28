@@ -13,6 +13,12 @@ html, body {
     font-family: "Marcellus", serif;
 }
 
+main {
+    width: 100%;
+    overflow: hidden; /* garante que nada saia do container */
+    position: relative;
+}
+
 header {
     width: 100%;
     height: 6rem;
@@ -26,6 +32,7 @@ header {
 header img {
     height: 5rem;
     width: auto;
+    max-height: 7.875rem;
 }
 
 h1 {
@@ -42,21 +49,16 @@ img {
     width: 100%;
     height: calc(100vh - 6rem);
     object-fit: cover;
-    object-position: center top;
+    object-position: center center;
     display: block;
-
-}
-
-main {
-    width: 100%;
-    overflow: hidden; /* garante que nada saia do container */
-    position: relative;
+    background: linear-gradient(135deg, #141c3e 0%, #290a47 100%);
 }
 
 .user-login-icon a {
     color: rgb(179, 179, 179);
     font-size: 2rem;
     text-decoration: none;
+    margin-left: auto;
 }
 
 .user-login-icon a:hover {
@@ -74,17 +76,46 @@ main {
 
 .bnt-chamados {
     display: inline-block;
-    padding: 1.2rem 4rem;
+    padding: 1.2rem 6rem;
     background-color: rgba(220, 220, 220, 0.9);
     color: #333;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
     border-radius: 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, - 50%);
+    z-index: 10;
+
 }
 
 .bnt-chamados:hover {
     background-color: rgba(225, 225, 225, 0.95);
     transform: translater;
+    transition: transform 0.2 ease-in-out;
+}
+
+.login {
+    padding: 10px 35px;
+    right: 20px;
+    position: absolute;
+}
+
+.login a {
+    color: rgb(255, 255, 255);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 110%;
+}
+
+footer {
+  margin-top: 0;
+  background-color: #143264;
+  color: white;
+  text-align: center;
+  padding: 0.7rem;
 }
