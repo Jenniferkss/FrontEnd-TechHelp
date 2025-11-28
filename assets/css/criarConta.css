@@ -1,169 +1,124 @@
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
-
-/* --- LAYOUT GERAL E ESTRUTURA --- */
-
-body {
-    /* Garante que o body ocupe a tela inteira e seja o container principal do layout */
-    background-color: #0a1e38; /* Fundo azul escuro principal */
-    min-height: 100vh;
-    margin: 0; /* IMPEDIR MARGENS EXTRAS */
-    font-family: 'Marcellus', serif;
-    /* O body não deve ser flex, o container-grid fará o trabalho */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
-/* --- CONTAINER PRINCIPAL (Layout de Colunas Grid) --- */
-
-.main-content-container {
-    /* ATENÇÃO: Aplica o layout de colunas para dividir a tela */
-    display: grid;
-    /* Coluna 1 (Área Vazia): Ocupa o restante do espaço (1fr)
-       Coluna 2 (Formulário): Largura fixa para a caixa do formulário */
-    grid-template-columns: 1fr 450px; 
-    height: 100vh; /* Ocupa a altura total da viewport */
-    width: 100%;
-}
-
-/* --- DIV VAZIA / ÁREA LIVRE (Coluna Esquerda) --- */
-
-.area-livre {
-    background-color: #0a1e38; 
-    /* ATENÇÃO: Flexbox para CENTRALIZAR O HEADER VERTICAL E HORIZONTALMENTE */
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-}
-
-/* --- HEADER (A Barra Azul Flutuante) --- */
 
 header {
-    /* O header está DENTRO de .area-livre (veja o HTML corrigido) */
-    width: 80%; /* Define a largura da barra azul */
-    height: 6rem; 
-    background-color: #10396D; /* Cor da barra azul escura */
+    width: 100%;
+    height: 6rem;
     display: flex;
-    justify-content: flex-start; 
+    background-color: #10396D;
+    justify-items: center;
     align-items: center;
-    padding: 0 2rem;
-    box-sizing: border-box;
-    /* Removido margin-right para centralizar melhor */
-    margin: 0; 
+    justify-content: center;
+    position: fixed;
 }
 
 header img {
     height: 5rem;
     width: auto;
     max-height: 7.875rem;
-    margin-right: 10px;
+    align-items: center;
 }
 
 h1 {
-    color: rgb(179, 179, 179);
-    font-size: 24px;
-    margin: 0; 
+  color: rgb(179, 179, 179);
 }
 
-/* --- MAIN/SECTION DO FORMULÁRIO (Coluna Direita) --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.login {
+  padding: 10px 35px; 
+  right: 20px;
+  position: absolute;
+}
+
+.login a {
+  color: rgb(255, 255, 255);
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 110%;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #0a1e38;
+}
 
 main {
-    /* Esta coluna tem 450px de largura e centraliza o formulário */
-    background-color: #0a1e38; 
-    display: flex;
-    justify-content: center; 
-    align-items: center; /* CENTRALIZAÇÃO VERTICAL DO FORMULÁRIO */
+  background-color: #0a1e38;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
 section {
-    background-color: #123158; 
-    text-align: center;
-    color: #E9E9E9;
-    font-size: 20px; 
-    width: 90%; 
-    max-width: 380px; 
-    padding: 3rem;
-    border-radius: 15px;
-    font-family: "Marcellus", serif;
-    margin: 0; 
-    box-sizing: border-box;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+  background-color: #123158;
+  text-align: center;
+  color: #E9E9E9;
+  font-size: 28px;
+  width: 100%;
+  max-width: 22rem;
+  padding: 3rem;  /* Ajustei o padding */
+  border-radius: 15px;
+  font-family: "Marcellus SC";
+  margin: 0;
+  margin-top: 100px;
 }
 
-/* --- TÍTULO E INPUTS (Espaçamento Aumentado) --- */
-
-#criar-conta {
-    font-size: 28px;
-    margin-bottom: 45px; 
-    font-weight: 500;
+h4 {
+  color: #E9E9E9;
 }
 
-.input-group {
-    display: flex;
-    align-items: center; 
-    margin-bottom: 30px; 
-    padding: 0 10px; 
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.input-group i {
-    color: #b3b3b3; 
-    font-size: 1.2em;
-    margin-right: 15px; 
-    width: 20px; 
-    text-align: center;
+.input-container i {
+  color: #A8AEAD;
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 input {
-    flex-grow: 1; 
-    padding: 15px 15px; 
-    border-radius: 8px; 
-    background-color: #f8f8f8; 
-    border: 1px solid #ccc; 
-    box-sizing: border-box;
-    margin: 0;
-    font-size: 16px; 
-    transition: border-color 0.3s ease; 
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: none;
+  color: #333;
+  margin-top: 10px;
 }
 
-input:focus {
-    outline: none; 
-    border-color: #10396D; 
-    box-shadow: 0 0 5px rgba(16, 57, 109, 0.5); 
+input::placeholder {
+  color: #6c6c6c;
 }
-
-/* --- BOTÃO "ENTRAR" --- */
 
 .botao {
-    background-color: #ffffff; 
-    color: #123158; 
-    padding: 12px 40px; 
-    font-size: 18px; 
-    font-weight: 600; 
-    margin-top: 40px; 
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.1s ease;
-    
-    display: block; 
-    margin-left: auto;
-    margin-right: auto;
-    width: 170px; 
-    text-decoration: none;
+  background-color: #A8AEAD;
+  color: #fff;
+  padding: 15px 32px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  width: 100%;
+  margin-top: 20px;
 }
 
 .botao:hover {
-    background-color: #e0e0e0; 
-}
-
-.botao:active {
-    transform: translateY(1px); 
+  background-color: #9c9e9c;
 }
