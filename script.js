@@ -1,4 +1,4 @@
-const API = 'http://10.88.200.138:3000/chamados';
+const API = 'http://192.168.56.1:3000/chamados';
 
 const lista = document.getElementById('lista');
 const detalhes = document.getElementById('detalhes');
@@ -24,6 +24,8 @@ const normalizarStringFiltro = (texto) => {
     normalizado = normalizado.replace(/[\s_]/g, ""); 
     return normalizado;
 };
+
+const tituloChamados = document.getElementById('titulo-chamados')
 
 async function carregarChamados() {
     try {
@@ -130,6 +132,8 @@ function mostrarDetalhes(c) {
 
     lista.style.display = 'none';
     controlarVisibilidadeControles(false);
+    tituloChamados.style.display = 'none';
+    detalhes.parentElement.style.display = 'flex'
 }
 
 async function voltar() {
@@ -137,6 +141,9 @@ async function voltar() {
     detalhes.innerHTML = '';
     lista.style.display = 'block';
     controlarVisibilidadeControles(true);
+
+    tituloChamados.style.display = 'block';
+    detalhes.parentElement.style.display = 'none';
 
     if (inputId.value.trim()) {
         console.log(`Reaplicando busca pelo ID: ${inputId.value.trim()}`);
