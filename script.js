@@ -1,22 +1,18 @@
-const API = 'http://10.88.199.163:3000/chamados';
+const API = 'http://192.168.1.107:3000/chamados';
 
 const lista = document.getElementById('lista');
 const detalhes = document.getElementById('detalhes');
-const inputBuscar = document.getElementById('inputBuscar');
 const inputId = document.getElementById('inputId');
 const selectStatus = document.getElementById('selectStatus');
 const selectPrioridade = document.getElementById('selectPrioridade');
-const inputResponsavel = document.getElementById('inputResponsavel');
 const btnBuscar = document.getElementById('btnBuscar');
 const btnReset = document.getElementById('btnReset');
 
 function controlarVisibilidadeControles(mostrar) {
     const display = mostrar ? 'inline' : 'none';
-    inputBuscar.style.display = display;
     inputId.style.display = display;
     selectStatus.style.display = display;
     selectPrioridade.style.display = display;
-    inputResponsavel.style.display = display;
     btnBuscar.style.display = display;
     btnReset.style.display = display;
 }
@@ -74,24 +70,15 @@ async function buscarPorId(id) {
 }
 
 function filtrarChamados(chamados) {
-    const buscaDescricao = inputBuscar.value.trim().toLowerCase();
     const filtroStatus = normalizarStringFiltro(selectStatus.value);
     const filtroPrioridade = normalizarStringFiltro(selectPrioridade.value);
-    const responsavelValue = inputResponsavel.value.trim();
     
     return chamados.filter(c => {
-        if (buscaDescricao && !c.descricao.toLowerCase().includes(buscaDescricao)) return false;
-        
         const chamadoStatus = normalizarStringFiltro(c.status);
         if (filtroStatus && chamadoStatus !== filtroStatus) return false;
         
         const chamadoPrioridade = normalizarStringFiltro(c.prioridade);
         if (filtroPrioridade && chamadoPrioridade !== filtroPrioridade) return false;
-        
-        if (responsavelValue) {
-            const responsavelIdStr = c.responsavelId ? c.responsavelId.toString() : '';
-            if (responsavelIdStr !== responsavelValue) return false;
-        }
 
         return true;
     });
@@ -167,11 +154,6 @@ btnBuscar.onclick = async () => {
     console.log('Botão Buscar clicado');
     
     if (inputId.value.trim()) {
-        inputBuscar.value = '';
-        selectStatus.value = '';
-        selectPrioridade.value = '';
-        inputResponsavel.value = '';
-        
         const chamados = await buscarPorId(inputId.value.trim());
         mostrarLista(chamados);
     } else {
@@ -183,11 +165,9 @@ btnBuscar.onclick = async () => {
 
 btnReset.onclick = async () => {
     console.log('Botão Reset clicado');
-    inputBuscar.value = '';
     inputId.value = '';
     selectStatus.value = '';
     selectPrioridade.value = '';
-    inputResponsavel.value = '';
     const chamados = await carregarChamados();
     mostrarLista(chamados);
 };
