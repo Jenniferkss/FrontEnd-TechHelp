@@ -12,6 +12,9 @@ html, body {
     overflow-x: hidden;
     font-family: "Marcellus", serif;
     background-color: #0a1e38;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -21,6 +24,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    padding-bottom: 50px;
 }
 
 header {
@@ -47,7 +51,7 @@ h2 {
     color: rgb(179, 179, 179);
     text-align: center;
     font-size: 1.5rem;
-    margin-top: -1.7rem;
+    margin-top: -0.5rem;
 }
 
 .user-login-icon a {
@@ -79,9 +83,9 @@ label {
     display: block;
     color: rgb(179, 179, 179);
     font-size: 1.2rem;
-    margin-top: 2.2rem;
-    margin-bottom: 0.3rem;
-    padding-left: 14px;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    padding-left: 0px;
 }
 
 .form-container textarea,
@@ -94,7 +98,23 @@ label {
     color: white;
     font-size: 1rem;
     resize: none;
+    font-family: "Marcellus", serif;
 
+}
+
+.form-container select {
+    color: white;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 1rem top 50%;
+    background-size: 0.65em auto;
+}
+
+.form-container select option {
+    background: #10396D;
+    color: white;
 }
 
 .form-container textarea::placeholder, .form-container input[type="text"]::placeholder {
@@ -108,19 +128,80 @@ label {
 
 .form-container {
     width: 100%;
-    max-width: 1000px;
-    padding: 2rem 0.5rem;
+    max-width: 850px;
+    padding: 2rem 1rem;
     margin-top: 2rem;
     margin-left: auto;
     margin-right: auto;
     padding: 2rem 0;
 }
 
+.form-container textarea, .form-container select {
+    width: 100%;
+    padding: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #6c757d;
+    color: white;
+    font-size: 1rem;
+    resize: vertical;
+    font-family: "Marcellus", serif;
+    margin-bottom: 0.5rem;
+}
+
+.submit-button {
+    background-color: #10396D;
+    color: #fafafa;
+    border: none;
+    padding: 1rem 1.5rem;
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-family: "Marcellus", serif;
+    width: 40%;
+    transition: background-color 0.3 ease;
+}
+
+.submit-butto:hover {
+    background-color: #ffffff;
+}
+
 footer {
-  margin-top: 3.5rem;
+  margin-top: 9.2rem;
   background-color: #143264;
   color: white;
   text-align: center;
   padding: 0.7rem;
   position: relative;
 }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .login-card {
+      flex-direction: column;
+      height: auto;
+    }
+    .card-left,
+    .card-right {
+      width: 100%;
+    }
+    .card-right {
+      height: 260px;
+    }
+    .card-left {
+      padding: 36px;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .brand h1 {
+      font-size: 26px;
+    }
+    .hero-text h2 {
+      font-size: 18px;
+    }
+  }

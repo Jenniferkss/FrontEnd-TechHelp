@@ -28,7 +28,16 @@
             <input type="text" id="status" placeholder="Escreva aqui..."/>
 
             <label for="prioridade">Prioridade</label>
-            <input type="text" id="prioridade" placeholder="Escreva aqui..."/>
+            <select id="prioridade">
+                <option value="" disable selected>Selecione a Prioridade...</option>
+                <option value="baixa" disable selected>Baixa</option>
+                <option value="media" disable selected>Media</option>
+                <option value="alta" disable selected>Alta</option>
+                <option value="urgente" disable selected>Urgente</option>
+            </select>
+
+            <button type="submit" class="submit-button">Enviar Chamado</button>
+
 
         </div>
     </main>
