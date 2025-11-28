@@ -15,56 +15,48 @@
     />
   </head>
   <body>
-    <header>
-            <img src="../assets/img/Logo.png" />
-            <h1>Academia Lyra</h1>
+     <header>
+        <img src="../assets/img/Logo.png"/>
+        <h1>Academia Lyra</h1>
+    <div class="login">
+    <a href="../login.html"><i class="fa-regular fa-user"></i></a></div>
     </header>
     <main>
       <section>
         <h4 id="criar-conta">Criar Conta</h4>
         <form action="../index.html" method="get">
-            <div class="email">
-              <label for="email"></label>
-              <i class="fa-solid fa-envelope"></i>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Digite seu e-mail..."
-                required
-              />
-            </div>
-            <div class="usuario">
-              <label for="Nome de usuário"></label>
-              <i class="fa-solid fa-user"></i>
-              <input
-                type="text"
-                name="Nome de usuário"
-                id="Nome de usuário"
-                placeholder="Crie um nome de usuário..."
-                required
-              />
-            </div>
-            <div class="Senha">
-              <label for="Senha"></label>
-              <i class="fa-solid fa-lock"></i>
-              <input
-                type="password"
-                name="Senha"
-                id="Senha"
-                placeholder="Crie uma Senha..."
-                required
-              />
-            </div>
+          <div class="input-container">
+            <i class="fa-solid fa-envelope"></i>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Digite seu e-mail..."
+              required
+            />
           </div>
-          <a href=""><button class="botao">Entrar</button></a>
 
-            <div id=""></div>
+          <div class="input-container">
+            <i class="fa-solid fa-user"></i>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Crie um nome de usuário..."
+              required
+            />
+          </div>
 
+          <div class="input-container">
+            <i class="fa-solid fa-lock"></i>
+            <input
+              type="password"
+              name="senha"
+              id="senha"
+              placeholder="Crie uma Senha..."
+              required
+            />
+          </div>
+
+          <button class="botao">Entrar</button>
         </form>
-      </section>
-    </main>
-  </body>
-</html>
-
-
