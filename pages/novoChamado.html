@@ -4,19 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/novoChamado.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <title>Novo Chamado</title>
 </head>
 <body>
     <header>
         <img src="../assets/img/Logo.png" />
         <h1>Academia Lyra</h1>
+        <div class="login">
+            <a href="./login.html"><i class="fa-regular fa-user"></i></a>
+        </div>
     </header>
 
-    <h2>Novo Chamado</h2>
+    <main>
+        <div class="form-container">
+            <h2>Novo Chamado</h2>
 
-    <h3>Descrição</h3>
-    <h3>Status</h3>
-    <h3>Prioridade</h3>
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" placeholder="Escreva aqui..." rows="3"></textarea>
+
+            <label for="status">Status</label>
+            <input type="text" id="status" placeholder="Escreva aqui..."/>
+
+            <label for="prioridade">Prioridade</label>
+            <input type="text" id="prioridade" placeholder="Escreva aqui..."/>
+
+        </div>
+    </main>
+    <footer>
+      <p>TechHelp © 2025 - Todos os direitos reservados </p>
+    </footer> 
 
 </body>
 </html>

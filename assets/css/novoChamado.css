@@ -14,6 +14,15 @@ html, body {
     background-color: #0a1e38;
 }
 
+main {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 header {
     width: 100%;
     height: 6rem;
@@ -21,6 +30,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
 }
 
 header img {
@@ -36,10 +46,81 @@ h1 {
 h2 {
     color: rgb(179, 179, 179);
     text-align: center;
-    padding: 30px;
+    font-size: 1.5rem;
+    margin-top: -1.7rem;
 }
 
-h3 {
+.user-login-icon a {
     color: rgb(179, 179, 179);
-    padding: 14px;
+    font-size: 2rem;
+    text-decoration: none;
+    margin-left: auto;
+}
+
+.user-login-icon a:hover {
+    opacity: 0.8;
+}
+
+.login {
+    padding: 10px 35px;
+    right: 20px;
+    position: absolute;
+}
+
+.login a {
+    color: rgb(255, 255, 255);
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    border-radius: 110%;
+}
+
+label {
+    display: block;
+    color: rgb(179, 179, 179);
+    font-size: 1.2rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0.3rem;
+    padding-left: 14px;
+}
+
+.form-container textarea,
+.form-container input[type="text"] {
+    width: 100%;
+    padding: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #6c757d;
+    color: white;
+    font-size: 1rem;
+    resize: none;
+
+}
+
+.form-container textarea::placeholder, .form-container input[type="text"]::placeholder {
+    color: white;
+    font-family: "Marcellus", serif;
+}
+
+.form-container input[type="text"] {
+    height: 3rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem 0.5rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 0;
+}
+
+footer {
+  margin-top: 3.5rem;
+  background-color: #143264;
+  color: white;
+  text-align: center;
+  padding: 0.7rem;
+  position: relative;
 }
