@@ -1,6 +1,6 @@
 ## 🛠️TechHelp- Sistema de Chamados Técnicos da Escola
 
-Esse projeto visa solucionar o problema de organização e rastreamento de chamados de suporte técnico para a infraestrutura de computadores e laboratórios ds escola, criando um sitema onde usuários podem visualizar o status dos tickets e a equipe técnica pode gerenciá-los através de um backend.
+Esse projeto visa solucionar o problema de organização e rastreamento de chamados de suporte técnico para a infraestrutura de computadores e laboratórios ds escola, criando um sitema onde usuários podem visualizar o status dos tickets e a equipe técnica pode gerenciá-los através de um backend completo.
 
 ## 🎯Storytelling / Problema
 
@@ -11,10 +11,24 @@ Atualmente, a gestão de problemas técnicos (computadores,redes, software, etc.
 O sistema será dividido em duas partes principais: O FrontEnd para visualização e o Backend para a lógica de negócio e persistência de dados.
 
 🖥️ Front-end
- - Tecnologias: HTML, CSS e JavaScirpt.
- - Funcionalidades:
-     - Listagem de Chamados: Exibir todos os chamados abertos.
-     - Visualização de Detalhes: Acesso a uma página específica para ver todos os dados de um chamado
 
-⚙️ Back-end  
-- Tecnologias: Node.js com Express.
+- Tecnologias: HTML, CSS e JavaScirpt.
+- Funcionalidades:
+  - Listagem de Chamados: Exibir todos os chamados abertos.
+  - Visualização de Detalhes: Acesso a uma página específica para ver todos os dados de um chamado
+
+⚙️ Back-end
+
+- Tecnologias: Node.js com Express e Prisma
+- Funcionalidades:
+  - Create: Cadastrar novos chamados;
+  - Read: Listar todos os chamados;
+    Listar por ID;
+    Filtrar chamados por status e prioridade
+  - Update: Atualiza informações do chamado
+  - Delete: Remoção de chamados quando necessário
+
+📌 Regras e Validações do Backend
+
+- Todos os campos obrigatórios devem ser validados (título, descrição, status, prioridade).
+- N
