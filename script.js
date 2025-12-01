@@ -1,4 +1,4 @@
-const API = 'http://192.168.56.1:3000/chamados';
+const API = 'http://10.88.199.168:3000/chamados';
 
 const lista = document.getElementById('lista');
 const detalhes = document.getElementById('detalhes');
