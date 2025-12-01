@@ -203,7 +203,6 @@ body {
   font-weight: 600;
 }
 
-/* Responsive */
 @media (max-width: 860px) {
   .login {
     flex-direction: column;
@@ -226,5 +225,3 @@ body {
     font-size: 26px;
   }
 }
-
-/* Fim */
