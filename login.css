@@ -171,6 +171,14 @@ body {
   background: var(--primary-grad);
   box-shadow: 0 10px 20px rgba(107, 70, 255, 0.08);
   color: #fff;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-link{
+  text-decoration: none;
 }
 
 .btn-primary:active {
@@ -195,7 +203,6 @@ body {
   font-weight: 600;
 }
 
-/* Responsive */
 @media (max-width: 860px) {
   .login {
     flex-direction: column;
@@ -218,5 +225,3 @@ body {
     font-size: 26px;
   }
 }
-
-/* Fim */
