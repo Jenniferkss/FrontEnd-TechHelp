@@ -25,7 +25,7 @@ const normalizarStringFiltro = (texto) => {
     return normalizado;
 };
 
-const tituloChamados = document.getElementById('titulo-chamados')
+const tituloChamados = document.getElementById('titulo-chamados');
 
 async function carregarChamados() {
     try {
@@ -93,20 +93,24 @@ function mostrarLista(chamados) {
         return;
     }
 
+    // Cria um contêiner para os chamados
+    const container = document.createElement('div');
+    container.className = 'lista-chamados'; // Classe para estilização no CSS
+
     chamados.forEach(c => {
         const div = document.createElement('div');
-        div.className = 'Chamado';
+        div.className = 'chamado'; // Classe para cada chamado
         div.innerHTML = `
-            <strong>Descrição:</strong> ${c.descricao} <br>
-            <strong>ID:</strong> ${c.id} <br>
+            <strong>Número:</strong> ${c.id} <br>
             <strong>Prioridade:</strong> ${c.prioridade} <br>
-            <strong>Responsável:</strong> ${c.responsavelId || 'N/A'} <br>
             <strong>Status:</strong> ${c.status} <br>
-            <strong>Criado em:</strong> ${new Date(c.criadoEm).toLocaleDateString()} <br>
+            <strong>Descrição:</strong> ${c.descricao} <br>
         `;
         div.onclick = () => mostrarDetalhes(c);
-        lista.appendChild(div);
+        container.appendChild(div); // Adiciona cada chamado ao contêiner
     });
+
+    lista.appendChild(container); // Adiciona o contêiner à lista
 }
 
 function mostrarDetalhes(c) {
