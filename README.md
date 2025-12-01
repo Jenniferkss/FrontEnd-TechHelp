@@ -30,5 +30,7 @@ O sistema será dividido em duas partes principais: O FrontEnd para visualizaç�
 
 📌 Regras e Validações do Backend
 
-- Todos os campos obrigatórios devem ser validados (título, descrição, status, prioridade).
-- N
+- Todos os campos obrigatórios devem ser validados (descrição, status, prioridade).
+- Deve conter mínimo de 100 chamados populados no banco.
+- Em caso de erro, retornar mensagens adequadas.
+- Garantir somente chamados existentes possam ser atualizados ou removidos.
