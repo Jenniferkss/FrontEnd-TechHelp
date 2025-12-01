@@ -66,4 +66,105 @@ footer {
     padding: 0.7rem;
     position: relative;
   }
-  
+  .lista-chamados {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px;
+    background-color: #1d2a3f;
+    border-radius: 8px;
+}
+.chamado {
+    flex: 1 1 calc(33.333% - 16px);
+    background-color: #6c757d;;
+    border: 1px solid #a3a9ad;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: #fff;
+}
+
+.chamado:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.filtros, .btns {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.filtros-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 40px;
+}
+body > .filtros,
+body > .btns {
+  margin: 20px 40px;
+}
+.filtros input,
+.filtros select {
+  padding: 10px 12px;
+  width: 230px;
+  background: #0f1b2e;
+  border: 1px solid #304b78;
+  border-radius: 6px;
+  color: #e4e6eb;
+  font-family: "Marcellus", serif;
+}
+.btns button {
+  padding: 10px 18px;
+  background: #1e63c7;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Marcellus", serif;
+  font-size: 15px;
+  transition: 0.2s ease;
+  height: 42px;
+  white-space: nowrap;
+}
+
+#btnReset { background: #555; }
+#btnCriarChamado { background: #113f91; }
+
+.btns button:hover { filter: brightness(1.2); }
+
+.btns a button {
+  height: 42px;
+}
+
+#titulo-chamados {
+    color: white;
+    margin-top: 2rem;
+    margin-left: 2.5rem;
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .login {
+    flex-direction: column;
+    height: auto;
+  }
+  .card-left,
+  .card-right {
+    width: 100%;
+  }
+  .card-right {
+    height: 260px;
+  }
+  .card-left {
+    padding: 36px;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand h1 {
+    font-size: 26px;
+  }
+}
