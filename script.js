@@ -133,7 +133,12 @@ function mostrarDetalhes(c) {
     lista.style.display = 'none';
     controlarVisibilidadeControles(false);
     tituloChamados.style.display = 'none';
-    detalhes.parentElement.style.display = 'flex'
+    detalhes.parentElement.style.display = 'flex';
+
+    const btnCriarChamado = document.getElementById('btnCriarChamado');
+    if (btnCriarChamado) {
+        btnCriarChamado.style.display = 'none';
+    }
 }
 
 async function voltar() {
@@ -144,6 +149,11 @@ async function voltar() {
 
     tituloChamados.style.display = 'block';
     detalhes.parentElement.style.display = 'none';
+
+    const btnCriarChamado = document.getElementById('btnCriarChamado');
+    if (btnCriarChamado) {
+        btnCriarChamado.style.display = 'block';
+    }
 
     if (inputId.value.trim()) {
         console.log(`Reaplicando busca pelo ID: ${inputId.value.trim()}`);
