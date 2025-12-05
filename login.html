@@ -15,26 +15,31 @@
             <h1>Faça seu login</h1>
           </div>
 
-          <form class="login-form" action="#" method="post" novalidate>
+          <form id="loginForm" class="login-form" action="#" method="post" novalidate>
             <label class="field">
               <span class="label-text">E-mail</span>
               <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="seu@email.com"
                 required
               />
+              <div id="email-feedback" class="email-feedback" aria-live="polite"></div>
             </label>
 
             <label class="field">
               <span class="label-text">Senha</span>
               <input
+                id="password"
                 type="password"
                 name="password"
                 placeholder="sua senha"
                 required
               />
+              <div id="password-feedback" class="password-feedback" aria-live="polite"></div>
             </label>
+            <script src="./validação.js" defer></script>
 
             <div class="form-row">
               <label class="remember">
@@ -43,12 +48,8 @@
               </label>
               <a class="forgot" href="#">Esqueci minha senha</a>
             </div>
-            
-            <a href="/index.html" class="btn-link">
-              <div class="btn-primary">
-                Entrar
-              </div>
-            </a>
+
+            <button type="submit" id="submitButton" class="btn-primary">Entrar</button>
 
             <p class="signup">
               Não tem conta ainda?
