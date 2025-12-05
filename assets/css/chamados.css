@@ -27,6 +27,12 @@ header {
     justify-content: center;
 }
 
+header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 header img {
     height: 5rem;
     width: auto;

@@ -37,6 +37,12 @@ header {
     gap: 1rem;
 }
 
+header a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
 header img {
     height: 5rem;
     width: auto;
@@ -164,10 +170,11 @@ label {
     font-family: "Marcellus", serif;
     width: 40%;
     transition: background-color 0.3 ease;
+
 }
 
-.submit-butto:hover {
-    background-color: #ffffff;
+.submit-button:hover {
+    background-color: #27599b;
 }
 
 footer {
