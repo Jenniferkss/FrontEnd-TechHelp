@@ -1,15 +1,18 @@
+// Definindo a URL da API para consultar os chamados
 const API = 'http://10.88.199.168:3000/chamados';
 
-const lista = document.getElementById('lista');
-const detalhes = document.getElementById('detalhes');
-const inputId = document.getElementById('inputId');
-const selectStatus = document.getElementById('selectStatus');
-const selectPrioridade = document.getElementById('selectPrioridade');
-const btnBuscar = document.getElementById('btnBuscar');
-const btnReset = document.getElementById('btnReset');
+// Pegando os elementos do DOM (Document Object Model) para manipulação futura
+const lista = document.getElementById('lista'); // Elemento onde a lista de chamados será exibida
+const detalhes = document.getElementById('detalhes'); // Elemento onde os detalhes do chamado serão exibidos
+const inputId = document.getElementById('inputId'); // Input para filtrar pelo ID do chamado
+const selectStatus = document.getElementById('selectStatus'); // Select para filtrar por status
+const selectPrioridade = document.getElementById('selectPrioridade'); // Select para filtrar por prioridade
+const btnBuscar = document.getElementById('btnBuscar'); // Botão para buscar chamados com base nos filtros
+const btnReset = document.getElementById('btnReset'); // Botão para resetar os filtros
 
+// Função para controlar a visibilidade dos controles de filtro
 function controlarVisibilidadeControles(mostrar) {
-    const display = mostrar ? 'inline' : 'none';
+    const display = mostrar ? 'inline' : 'none'; // Define se os controles serão visíveis ou não
     inputId.style.display = display;
     selectStatus.style.display = display;
     selectPrioridade.style.display = display;
@@ -17,104 +20,113 @@ function controlarVisibilidadeControles(mostrar) {
     btnReset.style.display = display;
 }
 
+// Função para normalizar a string para filtro (remover acentuação e espaços)
 const normalizarStringFiltro = (texto) => {
-    if (!texto) return '';
-    let normalizado = texto.toLowerCase(); 
-    normalizado = normalizado.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
-    normalizado = normalizado.replace(/[\s_]/g, ""); 
+    if (!texto) return ''; // Se o texto não for fornecido, retorna uma string vazia
+    let normalizado = texto.toLowerCase(); // Converte para minúsculo
+    normalizado = normalizado.normalize("NFD").replace(/[\u0300-\u036f]/g, ""); // Remove acentos
+    normalizado = normalizado.replace(/[\s_]/g, ""); // Remove espaços e underscores
     return normalizado;
 };
 
+// Pegando o elemento de título da lista de chamados
 const tituloChamados = document.getElementById('titulo-chamados');
 
+// Função para carregar todos os chamados a partir da API
 async function carregarChamados() {
     try {
-        const res = await fetch(API);
-        if (!res.ok) {
+        const res = await fetch(API); // Fazendo requisição para a API
+        if (!res.ok) { // Se não for bem-sucedida, lança um erro
             throw new Error(`Erro de rede: ${res.status}`);
         }
-        const data = await res.json();
-        return data.chamados || [];
+        const data = await res.json(); // Parseando a resposta como JSON
+        return data.chamados || []; // Retorna a lista de chamados ou um array vazio
     } catch (erro) {
-        console.error('Erro ao carregar chamados:', erro);
-        lista.innerHTML = '<p>Erro ao carregar chamados. Tente novamente.</p>';
+        console.error('Erro ao carregar chamados:', erro); // Se ocorrer erro, loga no console
+        lista.innerHTML = '<p>Erro ao carregar chamados. Tente novamente.</p>'; // Exibe uma mensagem de erro
         return [];
     }
 }
 
+// Função para buscar um chamado específico pelo ID
 async function buscarPorId(id) {
     try {
-        console.log(`Buscando pelo ID: ${id}`);
-        const res = await fetch(`${API}/${id}`);
+        console.log(`Buscando pelo ID: ${id}`); // Log para depuração
+        const res = await fetch(`${API}/${id}`); // Requisição GET com o ID do chamado
         
-        if (res.status === 404) {
+        if (res.status === 404) { // Se não encontrar o chamado, exibe uma mensagem de erro
             lista.innerHTML = '<p>Chamado não encontrado!</p>';
             return [];
         }
         
-        if (!res.ok) {
+        if (!res.ok) { // Se a resposta não for bem-sucedida, lança um erro
              throw new Error(`Erro de rede: ${res.status}`);
         }
         
-        const data = await res.json();
+        const data = await res.json(); // Parseando a resposta como JSON
         
         if (data && data.chamado) {
-            return [data.chamado]; 
+            return [data.chamado]; // Retorna o chamado encontrado
         } else {
              lista.innerHTML = '<p>Chamado não encontrado ou resposta inesperada da API!</p>';
              return [];
         }
     } catch (erro) {
-        console.error('Erro ao buscar chamado por ID:', erro);
-        lista.innerHTML = '<p>Erro ao buscar chamado por ID.</p>';
+        console.error('Erro ao buscar chamado por ID:', erro); // Log do erro no console
+        lista.innerHTML = '<p>Erro ao buscar chamado por ID.</p>'; // Exibe mensagem de erro
         return [];
     }
 }
 
+// Função para filtrar os chamados com base no status e prioridade
 function filtrarChamados(chamados) {
-    const filtroStatus = normalizarStringFiltro(selectStatus.value);
-    const filtroPrioridade = normalizarStringFiltro(selectPrioridade.value);
+    const filtroStatus = normalizarStringFiltro(selectStatus.value); // Normaliza o status
+    const filtroPrioridade = normalizarStringFiltro(selectPrioridade.value); // Normaliza a prioridade
     
-    return chamados.filter(c => {
+    return chamados.filter(c => { // Filtra a lista de chamados
         const chamadoStatus = normalizarStringFiltro(c.status);
-        if (filtroStatus && chamadoStatus !== filtroStatus) return false;
-        
+        if (filtroStatus && chamadoStatus !== filtroStatus) return false; // Filtra pelo status
+
         const chamadoPrioridade = normalizarStringFiltro(c.prioridade);
-        if (filtroPrioridade && chamadoPrioridade !== filtroPrioridade) return false;
+        if (filtroPrioridade && chamadoPrioridade !== filtroPrioridade) return false; // Filtra pela prioridade
 
         return true;
     });
 }
 
+// Função para exibir a lista de chamados na tela
 function mostrarLista(chamados) {
-    lista.innerHTML = '';
-    if (!chamados || chamados.length === 0) {
+    lista.innerHTML = ''; // Limpa a lista atual
+
+    if (!chamados || chamados.length === 0) { // Se não houver chamados ou estiver vazio
         lista.innerHTML = '<p>Nenhum chamado encontrado.</p>';
         return;
     }
 
     // Cria um contêiner para os chamados
     const container = document.createElement('div');
-    container.className = 'lista-chamados'; // Classe para estilização no CSS
+    container.className = 'lista-chamados'; // Adiciona uma classe para estilização no CSS
 
     chamados.forEach(c => {
+        // Cria um item para cada chamado
         const div = document.createElement('div');
         div.className = 'chamado'; // Classe para cada chamado
-        div.innerHTML = `
+        div.innerHTML = ` 
             <strong>Número:</strong> ${c.id} <br>
             <strong>Prioridade:</strong> ${c.prioridade} <br>
             <strong>Status:</strong> ${c.status} <br>
             <strong>Descrição:</strong> ${c.descricao} <br>
         `;
-        div.onclick = () => mostrarDetalhes(c);
-        container.appendChild(div); // Adiciona cada chamado ao contêiner
+        div.onclick = () => mostrarDetalhes(c); // Ao clicar, mostra os detalhes do chamado
+        container.appendChild(div); // Adiciona o item do chamado ao contêiner
     });
 
     lista.appendChild(container); // Adiciona o contêiner à lista
 }
 
+// Função para exibir os detalhes de um chamado
 function mostrarDetalhes(c) {
-    detalhes.innerHTML = `
+    detalhes.innerHTML = ` 
         <h2>Detalhes do Chamado</h2>
         <p><strong>Descrição:</strong> ${c.descricao}</p>
         <p><strong>ID:</strong> ${c.id}</p>
@@ -125,7 +137,8 @@ function mostrarDetalhes(c) {
         <p><strong>Status:</strong> ${c.status}</p>
         <button id="voltar">Voltar</button>
     `;
-
+    
+    // Adiciona a funcionalidade de "Voltar"
     const btnVoltar = document.getElementById('voltar');
     if (btnVoltar) {
         btnVoltar.onclick = () => {
@@ -134,55 +147,44 @@ function mostrarDetalhes(c) {
         };
     }
 
-    lista.style.display = 'none';
-    controlarVisibilidadeControles(false);
-    tituloChamados.style.display = 'none';
-    detalhes.parentElement.style.display = 'flex';
+    lista.style.display = 'none'; // Esconde a lista de chamados
+    controlarVisibilidadeControles(false); // Esconde os controles de filtro
+    tituloChamados.style.display = 'none'; // Esconde o título da lista
+    detalhes.parentElement.style.display = 'flex'; // Exibe a seção de detalhes
 
     const btnCriarChamado = document.getElementById('btnCriarChamado');
     if (btnCriarChamado) {
-        btnCriarChamado.style.display = 'none';
+        btnCriarChamado.style.display = 'none'; // Esconde o botão de criar chamado
     }
 }
 
+// Função para voltar para a lista de chamados
 async function voltar() {
     console.log('Voltando à lista');
-    detalhes.innerHTML = '';
-    lista.style.display = 'block';
-    controlarVisibilidadeControles(true);
+    detalhes.innerHTML = ''; // Limpa os detalhes
 
-    tituloChamados.style.display = 'block';
-    detalhes.parentElement.style.display = 'none';
+    lista.style.display = 'block'; // Exibe novamente a lista de chamados
+    controlarVisibilidadeControles(true); // Exibe os controles de filtro
+
+    tituloChamados.style.display = 'block'; // Exibe o título da lista
+    detalhes.parentElement.style.display = 'none'; // Esconde a seção de detalhes
 
     const btnCriarChamado = document.getElementById('btnCriarChamado');
     if (btnCriarChamado) {
-        btnCriarChamado.style.display = 'block';
+        btnCriarChamado.style.display = 'block'; // Exibe o botão de criar chamado
     }
 
-    if (inputId.value.trim()) {
+    if (inputId.value.trim()) { // Se houver um ID fornecido, aplica a busca por ID
         console.log(`Reaplicando busca pelo ID: ${inputId.value.trim()}`);
         const chamados = await buscarPorId(inputId.value.trim());
         mostrarLista(chamados);
-    } else {
+    } else { // Caso contrário, reaplica os filtros
         console.log('Reaplicando filtros');
         const chamados = await carregarChamados();
         const filtrados = filtrarChamados(chamados);
         mostrarLista(filtrados);
     }
 }
-
-btnBuscar.onclick = async () => {
-    console.log('Botão Buscar clicado');
-    
-    if (inputId.value.trim()) {
-        const chamados = await buscarPorId(inputId.value.trim());
-        mostrarLista(chamados);
-    } else {
-        const chamados = await carregarChamados();
-        const filtrados = filtrarChamados(chamados);
-        mostrarLista(filtrados);
-    }
-};
 
 btnReset.onclick = async () => {
     console.log('Botão Reset clicado');
