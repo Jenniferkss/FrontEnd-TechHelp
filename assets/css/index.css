@@ -7,8 +7,6 @@
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
     overflow-x: hidden;
     font-family: "Marcellus", serif;
     background-color: #0a1e38;
@@ -16,7 +14,7 @@ html, body {
 
 main {
     width: 100%;
-    overflow: hidden; /* garante que nada saia do container */
+    height: calc(100vh - 6rem);
     position: relative;
 }
 
@@ -27,17 +25,38 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0 2rem;
 }
 
-header img {
-    height: 5rem;
-    width: auto;
-    max-height: 7.875rem;
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-h1 {
+.logo-area img {
+  height: 5rem;
+}
+
+.logo-area h1 {
     color: rgb(179, 179, 179);
+    font-size: 2rem;
+}
+
+
+.login-area {
+  position: absolute;
+  right: 2rem;
+}
+
+.login-area a {
+  font-size: 1.9rem;
+  color: white;
+  text-decoration: none;
+}
+
+.login-area a:hover {
+  opacity: 0.8;
 }
 
 img {
@@ -53,64 +72,45 @@ img {
     object-position: center center;
     display: block;
     background: linear-gradient(135deg, #141c3e 0%, #290a47 100%);
+    filter: brightness(55%);
 }
 
-.user-login-icon a {
-    color: rgb(179, 179, 179);
-    font-size: 2rem;
-    text-decoration: none;
-    margin-left: auto;
-}
-
-.user-login-icon a:hover {
-    opacity: 0.8;
-}
-
-.chamados-container {
+.container-home {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
-    width: 100%;
+    text-align: center;
+    width: 60%;
+    color: white;
+}
+
+.container-home h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.container-home p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
 .bnt-chamados {
     display: inline-block;
-    padding: 1.2rem 6rem;
+    padding: 1rem 4rem;
     background-color: rgba(220, 220, 220, 0.9);
-    color: #333;
+    color: #012a53;
     font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
     border-radius: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, - 50%);
-    z-index: 10;
+    transition: 0.3s;
 
 }
 
 .bnt-chamados:hover {
-    background-color: rgba(225, 225, 225, 0.95);
-    transform: translater;
-    transition: transform 0.2 ease-in-out;
-}
-
-.login {
-    padding: 10px 35px;
-    right: 20px;
-    position: absolute;
-}
-
-.login a {
-    color: rgb(255, 255, 255);
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    border-radius: 110%;
+    background-color: white;
+    transform: scale(1.05);
 }
 
 footer {
