@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (!strongPasswordRegex.test(password) && isValid) {
-            feedback += 'A senha deve conter maiúscula, minúscula e número.\n';
+            feedback += 'A senha deve conter letras maiúscula, minúscula e número.\n';
             isValid = false;
         }
 
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (emailInput && emailFeedback) {
             const email = (emailInput.value || '').trim();
             if (!email.endsWith('@gmail.com')) {
-                emailFeedback.textContent = 'O e-mail deve ser um endereço @gmail.com.';
+                emailFeedback.textContent = 'O e-mail deve ser um endereço @lyra.edu.br';
                 emailIsValid = false;
             } else {
                 emailFeedback.textContent = '';
