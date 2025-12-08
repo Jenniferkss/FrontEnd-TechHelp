@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let emailIsValid = true;
         if (emailInput && emailFeedback) {
             const email = (emailInput.value || '').trim();
-            if (!email.endsWith('@gmail.com')) {
+            if (!email.endsWith('@lyra.edu.br')) {
                 emailFeedback.textContent = 'O e-mail deve ser um endereço @lyra.edu.br';
                 emailIsValid = false;
             } else {
